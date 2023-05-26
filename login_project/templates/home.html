@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <style type="text/css">
+            * { margin: 0; }
+            body {
+                background: url(https://i.ibb.co/hMT1dCj/Screenshot-from-2023-05-21-18-49-15.png) no-repeat;
+                background-size: cover;
+                height: 100vh;
+                background-position: left;
+            }
+            h1 {
+                text-align: center;
+            }
+            .p {
+                margin-top: 200px;
+                margin-left: 100px;
+            }
+            .button {
+                background-color: #4CAF50; /* Green */
+                border: none;
+                color: white;
+                padding: 10px 50px;
+                border-radius: 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                margin-left: 30px;
+                transition-duration: 0.4s;
+                cursor: pointer;
+            }
+            .button1 {
+                background-color: white;
+                color: black;
+                margin-left: 100px;
+                border: 2px solid #4CAF50;
+            }
+
+            .button1:hover {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            .button2 {
+                background-color: white;
+                color: black;
+                border: 2px solid #008CBA;
+            }
+
+            .button2:hover {
+                background-color: #008CBA;
+                color: white;
+            }
+
+            .header {
+                width: 100%;
+                padding: 20px;
+                background-color: rgba(0, 0, 0, 0);
+            }
+
+            .header1 ul {
+                text-align: center;
+            }
+
+            .header1 ul li {
+                list-style: none;
+                display: inline-block;
+            }
+
+            .header1 ul li a {
+                display: black;
+                text-decoration: none;
+                text-transform: uppercase;
+                color: #ff;
+                font-family: 'Raleway', sans-serif;
+                letter-spacing: 2px;
+                font-weight: 600;
+                padding: 25px;
+            }
+
+            .header1 ul li a:hover {
+                background-color: #211b4385;
+                width: 60%;
+            }
+
+            .header2 {
+                width: 20%;
+                padding: 5px;
+                background-color: rgba(0, 0, 0, 0);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="header2"><h2>Lab Manager</h2></div>
+            <div class="header1">
+                <ul>
+                    <li><a href="#" onclick="showDialog();">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="help.html">Help</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Added buttons for Student and Staff -->
+        <div>
+            <h1>WELCOME TO LAB MANAGER WEBSITE</h1>
+            <p class="p paragraph">If you...</p>
+            <button class="button button1" onclick="window.location.href = '/studentlogin';">Student</button>
+            <button class="button button2" onclick="window.location.href = '/stafflogin';">Staff</button>
+        </div>
+
+        <script>
+            function showDialog() {
+                var confirmDialog = confirm("Are you sure you want to go to the Home page?");
+                if (confirmDialog) {
+                    window.location.href = "home.html";
+                }
+            }
+        </script>
+    </body>
+</html>

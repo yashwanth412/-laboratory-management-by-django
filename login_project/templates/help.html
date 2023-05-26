@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Help Page</title>
+ <style>
+  body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   background-color: #D2B48C;
+  }
+
+  header {
+   background-color: #333;
+   padding: 1rem;
+   color: #fff;
+  }
+
+  header h1 {
+   font-size: 2rem;
+   margin: 0;
+   font-family: "Helvetica Neue", Arial, sans-serif;
+   margin-bottom: 0.5rem;
+   color: #D2B48C;
+  }
+
+  header nav ul li a {
+   color: #fff;
+   text-decoration: none;
+   margin-right: 1rem;
+   font-size: 1.2rem;
+   font-weight: bold;
+   font-family: "Arial Narrow", Arial, sans-serif;
+  }
+
+  h2 {
+   font-size: 1.5rem;
+   color: #333;
+   font-family: "Times New Roman", Times, serif;
+   margin-bottom: 0.5rem;
+  }
+
+  p {
+   line-height: 1.5;
+   margin-bottom: 1rem;
+   font-family: Verdana, Geneva, sans-serif;
+  }
+
+  ul,
+  ol {
+   margin-left: 1.5rem;
+   margin-bottom: 1rem;
+  }
+
+  button {
+   background-color: #333;
+   color: #fff;
+   border: none;
+   padding: 0.5rem 1rem;
+   cursor: pointer;
+   font-family: "Arial Narrow", Arial, sans-serif;
+  }
+
+  .steps {
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+   display: none;
+  }
+
+  .steps li {
+   line-height: 1.5;
+   margin-bottom: 0.5rem;
+  }
+
+  .contact-info {
+   margin-top: 2rem;
+   background-color: #f5f5f5;
+   padding: 1rem;
+   border-radius: 0.5rem;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+ </style>
+</head>
+<body>
+ <header>
+  <h1>Help Page</h1>
+  <nav>
+   <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+   </ul>
+  </nav>
+ </header>
+
+ <section id="home">
+  <h2>Home Section</h2>
+  <p>Welcome to the Help Page. Here you can find answers to commonly asked questions.</p>
+ </section>
+
+ <section id="about">
+  <h2>About Section</h2>
+  <p>This is the About section of the Help Page. It provides information about the page and its purpose.</p>
+ </section>
+
+ <h2 id="create-account">How to create an account</h2>
+ <p>To create an account, follow these steps:</p>
+ <button onclick="showSteps('create-account')">Show Steps</button>
+ <ol class="steps" id="create-account-steps">
+  <li>Go to the website.</li>
+  <li>Click on the "Signup" button.</li>
+  <li>Enter your details.</li>
+  <li>Click the "Submit" button.</li>
+ </ol>
+
+ <h2 id="forgot-password">What to do if I forgot my password</h2>
+ <p>To create a new password, follow these steps:</p>
+ <button onclick="showSteps('forgot-password')">Show Steps</button>
+ <ol class="steps" id="forgot-password-steps">
+  <li>If you are a student, click on the "Forgot Password" button.</li>
+  <li>If you are a staff member, click on the "Forgot Password" button.</li>
+ </ol>
+
+ <div class="contact-info">
+  <h2>Contact Us</h2>
+  <p>If you need further assistance or have any other questions, please feel free to contact us at:</p>
+  <p>helpandsupport@yahoomail.com</p>
+ </div>
+
+ <script>
+  function showSteps(sectionId) {
+   var steps = document.getElementById(sectionId + "-steps");
+   steps.style.display = "block";
+  }
+
+  function hideSteps(sectionId) {
+   var steps = document.getElementById(sectionId + "-steps");
+   for (var i = 0; i < steps.length; i++)
+   steps.style.display = "none";
+  }
+ </script>
+</body>
+</html>
