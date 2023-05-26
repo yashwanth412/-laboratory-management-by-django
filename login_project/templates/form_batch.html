@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Style the menu bar */
+    .menu {
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    /* Style the links inside the menu bar */
+    .menu a {
+      float: left;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    /* Change color on hover */
+    .menu a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    /* Form container */
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+    }
+
+    /* Form input fields */
+    .form-container input[type="number"],
+    .form-container input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: none;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+
+    /* Form submit button */
+    .form-container input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Form submit button on hover */
+    .form-container input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    /* Error dialog */
+    .error-dialog {
+      display: none;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #f44336;
+      color: white;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Create the menu bar -->
+<div class="menu">
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Contact</a>
+</div>
+
+<div class="form-container">
+  <form action="#" method="POST">
+    <label for="batch">Batch No:</label>
+    <input type="number" id="batch" name="batch">
+
+    <div id="studentFields"></div>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <div id="errorDialog" class="error-dialog"></div>
+</div>
+
+<script>
+  // Get the Batch No input field
+  var batchInput = document.getElementById("batch");
+
+  // Get the container for student input fields
+  var studentFieldsContainer = document.getElementById("studentFields");
+
+  // Get the error dialog element
+  var errorDialog = document.getElementById("errorDialog");
+
+  // Listen for changes in the Batch No input field
+  batchInput.addEventListener("input", function() {
+    // Get the value of the Batch No input field
+    var batchNo = parseInt(batchInput.value);
+
+    // Validate the batch number
+    if (batchNo > 15) {
+      errorDialog.textContent = "Batch number cannot exceed 15";
+      errorDialog.style.display = "block";
+      return;
+    }
+
+    // Hide the error dialog if the batch number is valid
+    errorDialog.style.display = "none";
+
+    // Generate student input fields based on the Batch No value
+    studentFieldsContainer.innerHTML = ""; // Clear previous fields
+
+    for (var i = 1; i <= batchNo; i++) {
+      var nameLabel = document.createElement("label");
+      nameLabel.textContent = "Name" + i + ":";
+      var nameInput = document.createElement("input");
+      nameInput.type = "text";
+      nameInput.name = "name" + i;
+
+      var rollLabel = document.createElement("label");
+      rollLabel.textContent = "Roll No:" + i + ":";
+      var rollInput = document.createElement("input");
+      rollInput.type = "text";
+      rollInput.name = "roll" + i;
+
+      studentFieldsContainer.appendChild(nameLabel);
+      studentFieldsContainer.appendChild(nameInput);
+      studentFieldsContainer.appendChild(document.createElement("br"));
+      studentFieldsContainer.appendChild(rollLabel);
+      studentFieldsContainer.appendChild(rollInput);
+      studentFieldsContainer.appendChild(document.createElement("br"));
+    }
+  });
+</script>
+
+</body>
+</html>
