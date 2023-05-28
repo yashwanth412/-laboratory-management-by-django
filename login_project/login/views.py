@@ -13,16 +13,6 @@ def home(request):
 
 
 def studentlogin(request):
-    if request.method=='POST':
-        roll_number = request.POST.get('roll_number')
-        password = request.POST.get('password')
-        roll_number = authenticate(request,roll_number=roll_number,password=password)
-        if User is not None:
-            login(request,User)
-            return redirect('batch')
-        else:
-            return HttpResponse ("roll_numbername or Password is incorrect!!!")
-    
     return render(request,'student_login.html')
 
 def stafflogin(request):
