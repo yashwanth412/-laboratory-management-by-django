@@ -21,11 +21,21 @@ from login import views
 
 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
-    #path('',include('login.urls')),
+    path('admin/', admin.site.urls),
+    
     path('',views.home),
     path('studentlogin/', views.studentlogin, name='studentlogin'),
     path('stafflogin/', views.stafflogin, name='stafflogin'),
-   
-    # path("accounts/",include("django.contrib.auth.urls")),
+    path('studentregister/',views.studentregister, name='studentregister'),
+    path('studentregister/studentlogin', views.studentlogin, name='studentlogin'),
+    path('help/', views.help, name='help'),
+    path('about/', views.about, name='about'),
+    path('about/help', views.help, name='home'),
+    path('about/home', views.about, name='about'),
+    path('help/home', views.help, name='home'),
+    path('help/about', views.about, name='about'),
+    path('help/help', views.help, name='help'),
+    path('about/about', views.about, name='about'),
+    path('batch/', views.batch, name='batch'),
+
 ]
