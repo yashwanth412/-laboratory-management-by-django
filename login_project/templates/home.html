@@ -7,8 +7,10 @@
             body {
                 background: url(https://i.ibb.co/hMT1dCj/Screenshot-from-2023-05-21-18-49-15.png) no-repeat;
                 background-size: cover;
-                height: 100vh;
+                height: 90vh;
                 background-position: left;
+                background-position: right;
+                
             }
             h1 {
                 text-align: center;
@@ -92,6 +94,14 @@
                 background-color: rgba(0, 0, 0, 0);
             }
         </style>
+        <script>
+            function changeBackground() {
+                var imageUrl = "https://example.com/new-background-image.png"; // Replace with the desired image URL
+                document.body.style.background = "url(" + imageUrl - ") no-repeat";
+                document.body.style.backgroundSize = "cover";
+                document.body.style.backgroundPosition = "left";
+            }
+        </script>
     </head>
     <body>
         <div class="header">
@@ -99,25 +109,23 @@
             <div class="header1">
                 <ul>
                     <li><a href="#" onclick="showDialog();">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="help.html">Help</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="help">Help</a></li>
                 </ul>
             </div>
         </div>
         <!-- Added buttons for Student and Staff -->
         <div>
             <h1>WELCOME TO LAB MANAGER WEBSITE</h1>
-            <p class="p paragraph">If you...</p>
+            <p class="p paragraph">If you are...</p>
             <button class="button button1" onclick="window.location.href = '/studentlogin';">Student</button>
             <button class="button button2" onclick="window.location.href = '/stafflogin';">Staff</button>
         </div>
 
         <script>
             function showDialog() {
-                var confirmDialog = confirm("Are you sure you want to go to the Home page?");
-                if (confirmDialog) {
-                    window.location.href = "home.html";
-                }
+                var confirmDialog = confirm(" you are in the Home page?");
+               
             }
         </script>
     </body>

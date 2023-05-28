@@ -56,13 +56,13 @@
 <body>
   <div class="container">
     <h2>Student Login</h2>
-    <form action="/studentlogin" method="post">
-    
-      <input type="text" placeholder="Roll Number" required>
-      <input type="password" placeholder="Password" required>
+    <form action="/studentlogin/" method="post">
+     {% csrf_token %}
+      <input type="text" placeholder="Roll Number" name = 'roll_number' required>
+      <input type="password" placeholder="Password" name = 'password ' required>
       <input type="submit" value="Login">
     </form>
-    <p>Don't have an account? <a onclick="window.location.href = 'student_signup.html';">Sign up</a></p>
+    <p>Don't have an account? <a href = "/studentregister/">Sign up</a></p>
   </div>
 </body>
 </html>
