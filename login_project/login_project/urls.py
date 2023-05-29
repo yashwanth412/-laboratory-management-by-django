@@ -37,5 +37,6 @@ urlpatterns = [
     path('help/help', views.help, name='help'),
     path('about/about', views.about, name='about'),
     path('batch/', views.batch, name='batch'),
+    path('batch/about', views.about, name='about'),
 
 ]
