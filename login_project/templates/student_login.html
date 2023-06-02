@@ -59,7 +59,7 @@
     <form action="/studentlogin/" method="post">
      {% csrf_token %}
       <input type="text" placeholder="Roll Number" name = 'roll_number' required>
-      <input type="password" placeholder="Password" name = 'password ' required>
+      <input type="password" placeholder="Password" name = 'password' required>
       <input type="submit" value="Login">
     </form>
     <p>Don't have an account? <a href = "/studentregister/">Sign up</a></p>

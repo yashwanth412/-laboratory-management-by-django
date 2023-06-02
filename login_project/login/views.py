@@ -12,18 +12,31 @@ def home(request):
     return render(request, 'home.html')
 
 
-def studentlogin(request):
-    if request.method=='POST':
-        roll_number = request.POST.get('roll_number')
-        password = request.POST.get('password')
-        roll_number = authenticate(request,roll_number=roll_number,password=password)
-        if User is not None:
-            login(request,User)
+def studentlogin(request): 
+    if request.method == 'POST':
+        rollnum = request.POST.get('roll_number')
+        pass1 = request.POST.get('password')
+        print(pass1)
+        # Check if the student exists in the database
+        try:
+            student = Student.objects.get(roll_number=rollnum)
+        except Student.DoesNotExist:
+            return render(request, 'student_login.html', {'error': 'Invalid credentials'})
+            
+
+        # Compare the provided password with the stored password
+        if student.password == pass1:
+            # Authentication succeeded, set a session variable or store relevant information
+            request.session['authenticated'] = True
+            request.session['roll_number'] = rollnum
             return redirect('batch')
         else:
-            return HttpResponse ("roll_numbername or Password is incorrect!!!")
-    
-    return render(request,'student_login.html')
+            # Authentication failed, show an error message or redirect to a login page
+            print("hi")
+            print(pass1,rollnum)
+            return render(request, 'student_login.html', {'error': 'Invalid credentials'})
+
+    return render(request, 'student_login.html')
 
 def stafflogin(request):
     return render(request,'staff_login.html')
@@ -31,28 +44,29 @@ def stafflogin(request):
 
 def studentregister(request):
     if request.method=='POST':
-    
-        
-        roll_number=request.POST.get('roll_number')
-        branch = request.POST.get('branch')
-        mobil_number=request.POST.get('mobile_number')
+        rollnum=request.POST.get('roll_number')
+        branch1 = request.POST.get('branch')
+        mobil=request.POST.get('mobile_number')
         pass1= request.POST.get('password')
         pass2= request.POST.get('password')
-        gmail=request.POST.get('gmail')
+        gmail1=request.POST.get('gmail')
         
-        if Student.objects.filter(roll_number=roll_number):
+        if Student.objects.filter(roll_number=rollnum):
             return HttpResponse("roll number already exist! Please try some other roll number.")
         
-        if Student.objects.filter(gmail = gmail).exists():
+        if Student.objects.filter(gmail = gmail1).exists():
             return HttpResponse("Email Already Registered!!")
         
-        if len(roll_number)>20:
+        if Student.objects.filter(mobile_number = mobil).exists():
+            return HttpResponse("mobile Number is Already Registered!!")
+        
+        if len(rollnum)>20:
             return HttpResponse("roll number must be under 20 charcters!!")
         
         if pass1!=pass2:
             return HttpResponse("Your password and confrom password are not Same!!")
         else:
-           my_user=User.objects.create_user(roll_number,gmail,pass1)
+           my_user=Student(roll_number= rollnum,gmail=gmail1,password=pass1,branch=branch1,mobile_number=mobil)
            my_user.save()
            return redirect('studentlogin')
          #print(roll_number,branch,mobile_number,password,gmail)
